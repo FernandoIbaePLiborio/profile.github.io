@@ -1,4 +1,4 @@
-/* W3Data ver 1.31 by W3Schools.com */
+
 var dataObject = {};
 function displayData(id, data) {
     var htmlObj, htmlTemplate, html, arr = [], a, l, rowClone, x, j, i, ii, cc, repeat, repeatObj, repeatX = "";
