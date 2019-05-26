@@ -39,7 +39,7 @@ function displayData(id, data) {
     function initTemplate(id, obj) {
         var template;
         template = obj.cloneNode(true);
-        if (dataObject.hasOwnProperty(id)) {return dataObject[id];}
+        if (dataObject.hasOwnProperty(id)) { return dataObject[id]; }
         dataObject[id] = template;
         return template;
     }
@@ -47,8 +47,8 @@ function displayData(id, data) {
         var arr = [], arrCount = -1, i, l, y = x.getElementsByTagName("*"), z = att.toUpperCase();
         l = y.length;
         for (i = -1; i < l; i += 1) {
-            if (i == -1) {y[i] = x;}
-            if (y[i].getAttribute(z) !== null) {arrCount += 1; arr[arrCount] = y[i];}
+            if (i == -1) { y[i] = x; }
+            if (y[i].getAttribute(z) !== null) { arrCount += 1; arr[arrCount] = y[i]; }
         }
         return arr;
     }
@@ -59,7 +59,7 @@ function displayData(id, data) {
         while (pos1 > -1) {
             haystack = (typ == "attribute") ? rowClone.value : rowClone.innerHTML;
             pos1 = haystack.indexOf("{{", pos1);
-            if (pos1 === -1) {break;}
+            if (pos1 === -1) { break; }
             pos2 = haystack.indexOf("}}", pos1 + 1);
             needleToReplace = haystack.substring(pos1 + 2, pos2);
             needle = needleToReplace.split("||");
@@ -67,23 +67,23 @@ function displayData(id, data) {
             for (i = 0; i < needle.length; i += 1) {
                 needle[i] = needle[i].replace(/^\s+|\s+$/gm, ''); //trim
                 //value = ((x && x[needle[i]]) || (data && data[needle[i]]));
-                if (x) {value = x[needle[i]];}
-                if (value == undefined && data) {value = data[needle[i]];}
+                if (x) { value = x[needle[i]]; }
+                if (value == undefined && data) { value = data[needle[i]]; }
                 if (value == undefined) {
                     cc = needle[i].split(".");
-                    if (cc[0] == repeatX) {value = x[cc[1]]; }
+                    if (cc[0] == repeatX) { value = x[cc[1]]; }
                 }
                 if (value == undefined) {
-                    if (needle[i] == repeatX) {value = x;}
+                    if (needle[i] == repeatX) { value = x; }
                 }
                 if (value == undefined) {
                     if (needle[i].substr(0, 1) == '"') {
                         value = needle[i].replace(/"/g, "");
-                    } else if (needle[i].substr(0,1) == "'") {
+                    } else if (needle[i].substr(0, 1) == "'") {
                         value = needle[i].replace(/'/g, "");
                     }
                 }
-                if (value != undefined) {break;}
+                if (value != undefined) { break; }
             }
             if (value != undefined) {
                 r = "{{" + needleToReplace + "}}";
@@ -103,7 +103,7 @@ function displayData(id, data) {
             b = a.attributes;
             l = b.length;
             for (i = 0; i < l; i += 1) {
-                if (b[i].value.indexOf(r) > -1) {b[i].value = b[i].value.replace(r, result);}
+                if (b[i].value.indexOf(r) > -1) { b[i].value = b[i].value.replace(r, result); }
             }
         }
         x = a.getElementsByTagName("*");
@@ -112,44 +112,44 @@ function displayData(id, data) {
     }
 }
 function includeHTML(cb) {
-  var z, i, elmnt, file, xhttp;
-  z = document.getElementsByTagName("*");
-  for (i = 0; i < z.length; i++) {
-    elmnt = z[i];
-    file = elmnt.getAttribute("include-html");
-    if (file) {
-      xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          elmnt.innerHTML = this.responseText;
-          elmnt.removeAttribute("include-html");
-          includeHTML(cb);
+    var z, i, elmnt, file, xhttp;
+    z = document.getElementsByTagName("*");
+    for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        file = elmnt.getAttribute("include-html");
+        if (file) {
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    elmnt.innerHTML = this.responseText;
+                    elmnt.removeAttribute("include-html");
+                    includeHTML(cb);
+                }
+            }
+            if ("withCredentials" in xhttp) {
+                // XHR for Chrome/Firefox/Opera/Safari.
+                xhttp.open("GET", file, true);
+            } else if (typeof XDomainRequest != "undefined") {
+                // XDomainRequest for IE.
+                xhr = new XDomainRequest();
+                xhr.open("GET", file, true);
+            }
+            xhttp.send();
+            return;
         }
-      }
-      if ("withCredentials" in xhttp) {
-        // XHR for Chrome/Firefox/Opera/Safari.
-        xhttp.open("GET", file, true);
-      } else if (typeof XDomainRequest != "undefined") {
-        // XDomainRequest for IE.
-        xhr = new XDomainRequest();
-        xhr.open("GET", file, true);
-      }
-      xhttp.send();
-      return;
     }
-  }
-  if (cb) cb();
+    if (cb) cb();
 }
 function http(target, readyfunc, xml, method) {
     var httpObj;
-    if (!method) {method = "GET"; }
+    if (!method) { method = "GET"; }
     if (window.XMLHttpRequest) {
         httpObj = new XMLHttpRequest();
     } else if (window.ActiveXObject) {
         httpObj = new ActiveXObject("Microsoft.XMLHTTP");
     }
     if (httpObj) {
-        if (readyfunc) {httpObj.onreadystatechange = readyfunc;}
+        if (readyfunc) { httpObj.onreadystatechange = readyfunc; }
         httpObj.open(method, target, true);
         httpObj.send(xml);
     }
