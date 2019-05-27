@@ -161,6 +161,5 @@ function sendMail() {
              + "&subject=" + escape("This is my subject")
              + "&body=" + escape(document.getElementById('myText').value)
     ;
-
     window.location.href = link;
 }
