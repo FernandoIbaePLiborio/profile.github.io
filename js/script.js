@@ -154,3 +154,13 @@ function http(target, readyfunc, xml, method) {
         httpObj.send(xml);
     }
 }
+
+function sendMail() {
+    var link = "mailto:nandotromp@gmail.com"
+             + "?cc=nandotromp@gmail.com"
+             + "&subject=" + escape("This is my subject")
+             + "&body=" + escape(document.getElementById('myText').value)
+    ;
+
+    window.location.href = link;
+}
