@@ -18,3 +18,9 @@ footer.fix-down {
     margin-top: 30px;
     width: 100%;
 }
+
+.scrollSpySite{
+    position: relative;
+    overflow: auto;
+    height: 380px;
+}
