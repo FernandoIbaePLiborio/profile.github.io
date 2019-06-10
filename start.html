@@ -2,9 +2,9 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="imagens/java.ico="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="imagens/java.ico" type="image/x-icon">
     <link rel="stylesheet" href="modules/bootstrap/compiler/bootstrap.css">
     <link rel="stylesheet" href="modules/bootstrap/compiler/style.css">
     <link rel="stylesheet" href="modules/font-awesome/css/font-awesome.css">
@@ -57,7 +57,7 @@
             </div>
         </div>
     </nav>
-    <div id="carouselSite" class="carousel slide carousel-fade" data-ride="carousel">
+    <div id="carouselSite" class="carousel slide carousel-fade show" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselSite" data-slide-to="0" class="active"></li>
             <li data-target="#carouselSite" data-slide-to="1"></li>
@@ -233,45 +233,14 @@
         </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="siteModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">palavras não características</h5>
-                    <button type="buttom" class="close" data-dismiss="modal">
-                        <span>&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-6">
-                                <h5>Título</h5>
-                                <p>et Malorum" (Os Extremos do Bem e do Mal), de Cícero, escrito em 45 AC. Este livro é um tratado de teoria da ética muito popular na época da Renascença. A primeira linha de Lorem Ipsum, "Lorem Ipsum dolor sit amet..." vem de uma</p>
-                            </div>
-                            <div class="col-6">
-                                <h5>Título</h5>
-                                <p>embaraçoso escrito escondido no meio do texto. Todos os geradores de Lorem Ipsum na internet tendem a repetir pedaços predefinidos conforme necessário,</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Done</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- footer -->
+    <!-- jumbotron -->
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
                     <h1 class="display-4">
                         <p class="lead">
-                            Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
+                            <i class="fa fa-camera-retro fa-lg"></i> Footer demonstrativo de trabalhos divulgados no Vimeo. 
                         </p>
                         <hr>
                     </h1>
@@ -334,12 +303,145 @@
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center my-5">
+                <h1 class="display-4"><i class="fa fa-paper-plane text-primary" aria-hidden="true"></i>Java Office</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-5">
+            <div class="col-sm-12 col-md-10 col-lg-8">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-sm-6">
+                            <label for="inputName">Your Name</label>
+                            <input type="text" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="inputLastName">Last Name</label>
+                            <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-12">
+                            <label for="inputAddress">Address</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Address">
+                        </div>
+                    </div> 
+                    <div class="form-row">
+                        <div class="form-group col-sm-6">
+                            <label for="inputCity">City</label>
+                            <input type="text" class="form-control" id="inputCity" placeholder="City">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="inputState">State</label>
+                            <select id="inputState" class="form-control">
+                                <option selected>Escolha...</option>
+                                <option>...</option>
+                                <option>...</option>
+                                <option>...</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="inputZipCode">ZipCode</label>
+                            <input type="text" class="form-control" id="inputZipCode">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-12">
+                            <div class="form-check">
+                                <label for="" class="form-check-label">
+                                    <input type="checkbox" class="form-check-input"> Desejo receber novidades por e-mail.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <button class="btn btn-primary" type="submit">Enviar</button>
+                        <a tabindex="0" class="btn btn-secondary ml-2" role="button" data-toggle="popover" 
+                        data-placement="right" data-trigger="focus" title="Exibição do popover"
+                        data-content="Exibição do texto ao focus do botão">Ajuda</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Início</h3>
+                <p>Existem muitas variações disponíveis de passagens de Lorem Ipsum, mas a maioria sofreu algum tipo de alteração, seja por inserção de passagens com humor, ou palavras aleatórias que não parecem nem um pouco convincentes.</p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Perfil</h3>
+                <div class="list-group text-center">
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Perfil</a>
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Serviços</a>
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Depoimentos</a>
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Contatos</a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <h3>Social</h3>
+                <div class="btn-group-vertical btn-block btn-group-lg" role="group">
+                    <a href="#" class="btn btn-outline-primary"><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</a>
+                    <a href="#" class="btn btn-outline-info"><i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</a>
+                    <a href="#" class="btn btn-outline-warning"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a>
+                </div>
+            </div>
+            <div class="col-12 mt-5">
+                <blockquote class="blockquote text-center">
+                    <p class="mb-0">"O sucesso não é garantido, mas o fracasso é certo se você não estiver emocionamente envolvido em seu trabalho."</p>
+                    <footer class="blockquote-footer">Biz Stone <cite title="Source Title"> Fundador do Twitter</cite></footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="siteModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">palavras não características</h5>
+                    <button type="buttom" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-6">
+                                <h5>Título</h5>
+                                <p>et Malorum" (Os Extremos do Bem e do Mal), de Cícero, escrito em 45 AC. Este livro é um tratado de teoria da ética muito popular na época da Renascença. A primeira linha de Lorem Ipsum, "Lorem Ipsum dolor sit amet..." vem de uma</p>
+                            </div>
+                            <div class="col-6">
+                                <h5>Título</h5>
+                                <p>embaraçoso escrito escondido no meio do texto. Todos os geradores de Lorem Ipsum na internet tendem a repetir pedaços predefinidos conforme necessário,</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <script src="modules/jquery/dist/jquery.min.js"></script>
     <script src="modules/popper.js/dist/umd/popper.js"></script>
     <script src="modules/bootstrap/dist/js/bootstrap.js"></script>
-    <script type="text/javascript">
-
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="fade"]').fadeIn()
+        })
     </script>
 </body>
 
