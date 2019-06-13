@@ -222,7 +222,7 @@
                          <li class="list-group-item">A primeira linha de Lorem Ipsum."</li>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link" data-toggle="modal" data-target="#siteModal">Donec</a>
+                        <a href="#siteModal" class="card-link" data-toggle="modal">Donec</a>
                         <a href="#" class="card-link">Curabitur risus</a>
                     </div>
                     <div class="card-footer text-muted">
@@ -400,11 +400,11 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal" id="siteModal" tabindex="-1" role="dialog">
+    <div class="modal fade" id="siteModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">palavras não características</h5>
+                    <h5 class="modal-title">Palavras não Características</h5>
                     <button type="buttom" class="close" data-dismiss="modal">
                         <span>&times;</span>
                     </button>
@@ -436,11 +436,6 @@
     <script>
         $(function () {
             $('[data-toggle="popover"]').popover()
-        })
-    </script>
-    <script>
-        $(function () {
-            $('[data-toggle="fade"]').fadeIn()
         })
     </script>
 </body>
