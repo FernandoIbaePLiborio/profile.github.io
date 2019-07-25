@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Contact Form</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script src="js/smtp.js"></script>
     <script type="text/javascript">
-        (function(){
-           emailjs.init("user_g6F3xUlZipbrry1rUrc0L");
-        })();
-    </script>
-    <script type="text/javascript">
-        window.onload = function() {
-            document.getElementById('contact-form').addEventListener('submit', function(event) {
+        window.onload = function () {
+            document.getElementById('contact-form').addEventListener('submit', function (event) {
                 event.preventDefault();
                 this.contact_number.value = Math.random() * 100000 | 0;
-                emailjs.sendForm('gmail', 'template_OlcJ39lA', this);
+                Email.send({
+                    SecureToken: "b4b1e026-e9df-45da-8742-f0876782c3dc",
+                    To: 'emporiosaudecuritiba@gmail.com',
+                    From: "emporiosaudecuritiba@gmail.com",
+                    Subject: "This is the subject",
+                    Body: this.contact.value
+                }).then(
+                    message => alert(message)
+                );
             });
         }
     </script>
 </head>
+
 <body>
     <form id="contact-form">
         <input type="hidden" name="contact_number">
@@ -30,4 +35,5 @@
         <input type="submit" value="Send">
     </form>
 </body>
+
 </html>
