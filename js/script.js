@@ -155,11 +155,54 @@ function http(target, readyfunc, xml, method) {
     }
 }
 
+/* Send Email via SMTPJS */
 function sendMail() {
-    var link = "mailto:nandotromp@gmail.com"
-             + "?cc=nandotromp@gmail.com"
-             + "&subject=" + escape("This is my subject")
-             + "&body=" + escape(document.getElementById('myText').value)
-    ;
-    window.location.href = link;
+    document.getElementById('contact-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const output = `
+        <p>You have a new contact request</p>
+        <h3>Contact Details</h3>
+        <ul>
+            <li>Name: ${this.name.value}</li>
+            <li>Fone: ${this.fone.value}</li>
+            <li>Email: ${this.email.value}</li>
+        </ul>
+        <h3>Message</h3>
+        <p>${this.textMessage.value}</p>
+        `;
+        const nome = this.name.value;
+        Email.send({
+            SecureToken: "b4b1e026-e9df-45da-8742-f0876782c3dc",
+            To: 'emporiosaudecuritiba@gmail.com',
+            From: "emporiosaudecuritiba@gmail.com",
+            Subject: this.subject.value,
+            Body: output
+        }).then(
+            message => alert(`Obrigado pela visita Sr(a) ${nome}, entrarei em contato o mais breve possível!`)
+        );
+        document.getElementById('contact-form').reset();
+    });
 }
+
+/* SmtpJS.com - v3.0.0 */
+var Email = {
+    send: function (a) {
+        return new Promise(function (n, e) {
+            a.nocache = Math.floor(1e6 * Math.random() + 1), a.Action = "Send";
+            var t = JSON.stringify(a);
+            Email.ajaxPost("https://smtpjs.com/v3/smtpjs.aspx?", t, function (e) { n(e) })
+        })
+    }, ajaxPost: function (e, n, t) {
+        var a = Email.createCORSRequest("POST", e);
+        a.setRequestHeader("Content-type", "application/x-www-form-urlencoded"), a.onload = function () {
+            var e = a.responseText; null != t && t(e)
+        }, a.send(n)
+    }, ajax: function (e, n) {
+        var t = Email.createCORSRequest("GET", e); t.onload = function () {
+            var e = t.responseText; null != n && n(e)
+        }, t.send()
+    }, createCORSRequest: function (e, n) {
+        var t = new XMLHttpRequest;
+        return "withCredentials" in t ? t.open(e, n, !0) : "undefined" != typeof XDomainRequest ? (t = new XDomainRequest).open(e, n) : t = null, t
+    }
+};
