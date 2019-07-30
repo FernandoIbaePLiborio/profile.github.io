@@ -171,6 +171,7 @@ function sendMail() {
         <p>${this.textMessage.value}</p>
         `;
         const nome = this.name.value;
+        console.log(nome);
         Email.send({
             SecureToken: "b4b1e026-e9df-45da-8742-f0876782c3dc",
             To: 'emporiosaudecuritiba@gmail.com',
@@ -206,3 +207,115 @@ var Email = {
         return "withCredentials" in t ? t.open(e, n, !0) : "undefined" != typeof XDomainRequest ? (t = new XDomainRequest).open(e, n) : t = null, t
     }
 };
+
+/* Validação de campos */
+function validateFields() {
+    const filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    const invalidForm = document.querySelector('form:invalid');
+    const submitBtn = document.getElementById('btnSendMail');
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    let contErro = '';
+    caixa_nome = document.querySelector('.msg-name');
+    caixa_email = document.querySelector('.msg-email');
+    if (email.value == "") {
+        caixa_email.innerHTML = "Favor preencher o E-mail";
+        caixa_email.style.display = 'block';
+        contErro += 1;
+    } else if (filtro.test(email.value)) {
+        caixa_email.style.display = 'none';
+    } else {
+        caixa_email.innerHTML = "Formato do E-mail inválido";
+        caixa_email.style.display = 'block';
+        contErro += 1;
+    }
+    if (name.value == '') {
+        caixa_nome.innerHTML = "Favor preencher o Nome";
+        caixa_nome.style.display = 'block';
+        contErro += 1;
+    } else {
+        caixa_nome.style.display = 'none';
+    }
+    if (invalidForm || contErro != '') {
+        submitBtn.setAttribute('disabled', true);
+    } else {
+        submitBtn.disabled = false;
+    }
+}
+
+const inputs = document.getElementsByTagName("input");
+for (let input of inputs) {
+    input.addEventListener('change', disableField);
+}
+
+/* Máscaras ER */
+function mascara(o, f) {
+    v_obj = o
+    v_fun = f
+    setTimeout("execmascara()", 1)
+}
+function execmascara() {
+    v_obj.value = v_fun(v_obj.value)
+}
+function mcep(v) {
+    v = v.replace(/\D/g, "")                    //Remove tudo o que não é dígito
+    v = v.replace(/^(\d{2})(\d)/, "$1.$2")
+    v = v.replace(/(\d{3})(\d{1,3})$/, "$1-$2")
+    return v
+}
+function mtel(v) {
+    v = v.replace(/\D/g, "")                 //Remove tudo o que não é dígito
+    v = v.replace(/^(\d\d)(\d)/g, "($1) $2") //Coloca parênteses em volta dos dois primeiros dígitos
+    if (v.length > 13) {
+        v = v.replace(/(\d{5})(\d)/, "$1-$2")    //Coloca hífen entre o quarto e o quinto dígitos
+    } else {
+        v = v.replace(/(\d{4})(\d)/, "$1-$2")
+
+    }
+    return v
+}
+function cnpj(v) {
+    v = v.replace(/\D/g, "")                           //Remove tudo o que não é dígito
+    v = v.replace(/^(\d{2})(\d)/, "$1.$2")             //Coloca ponto entre o segundo e o terceiro dígitos
+    v = v.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3") //Coloca ponto entre o quinto e o sexto dígitos
+    v = v.replace(/\.(\d{3})(\d)/, ".$1/$2")           //Coloca uma barra entre o oitavo e o nono dígitos
+    v = v.replace(/(\d{4})(\d)/, "$1-$2")              //Coloca um hífen depois do bloco de quatro dígitos
+    return v
+}
+function mcpf(v) {
+    v = v.replace(/\D/g, "")                    //Remove tudo o que não é dígito
+    v = v.replace(/(\d{3})(\d)/, "$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
+    v = v.replace(/(\d{3})(\d)/, "$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
+    //de novo (para o segundo bloco de números)
+    v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2") //Coloca um hífen entre o terceiro e o quarto dígitos
+    return v
+}
+function mdata(v) {
+    v = v.replace(/\D/g, "");                    //Remove tudo o que não é dígito
+    v = v.replace(/(\d{2})(\d)/, "$1/$2");
+    v = v.replace(/(\d{2})(\d)/, "$1/$2");
+
+    v = v.replace(/(\d{2})(\d{2})$/, "$1$2");
+    return v;
+}
+function mtempo(v) {
+    v = v.replace(/\D/g, "");                    //Remove tudo o que não é dígito
+    v = v.replace(/(\d{1})(\d{2})(\d{2})/, "$1:$2.$3");
+    return v;
+}
+function mhora(v) {
+    v = v.replace(/\D/g, "");                    //Remove tudo o que não é dígito
+    v = v.replace(/(\d{2})(\d)/, "$1h$2");
+    return v;
+}
+function mrg(v) {
+    v = v.replace(/\D/g, "");					//Remove tudo o que não é dígito
+    v = v.replace(/(\d)(\d{7})$/, "$1.$2");	//Coloca o . antes dos últimos 3 dígitos, e antes do verificador
+    v = v.replace(/(\d)(\d{4})$/, "$1.$2");	//Coloca o . antes dos últimos 3 dígitos, e antes do verificador
+    v = v.replace(/(\d)(\d)$/, "$1-$2");		//Coloca o - antes do último dígito
+    return v;
+}
+function mnum(v) {
+    v = v.replace(/\D/g, "");					//Remove tudo o que não é dígito
+    return v;
+}

@@ -16,7 +16,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "file:///C:/Users/80654843/Desktop/txt/site/index.html",
+            "url": "file:///C:/Users/80654843/projetosAngularJava/profile.github.io/index.html",
             "webRoot": "${script.js}"
         }
     ]
