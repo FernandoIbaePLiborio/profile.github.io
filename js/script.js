@@ -141,6 +141,7 @@ function includeHTML(cb) {
     }
     if (cb) cb();
 }
+
 function http(target, readyfunc, xml, method) {
     var httpObj;
     if (!method) { method = "GET"; }
@@ -158,9 +159,7 @@ function http(target, readyfunc, xml, method) {
 
 /* Send Email via SMTPJS */
 function sendMail() {
-    document.getElementById('contact-form').addEventListener('submit', function (event) {
-        loading = document.querySelector('.loading');
-        loading.style.display = 'block';
+    document.getElementById('contact-form').addEventListener('submit', async function (event) {
         event.preventDefault();
         const output = `
         <p>You have a new contact request</p>
@@ -174,7 +173,8 @@ function sendMail() {
         <p>${this.textMessage.value}</p>
         `;
         const nome = this.name.value;
-        Email.send({
+
+        await Email.send({
             SecureToken: "b4b1e026-e9df-45da-8742-f0876782c3dc",
             To: 'nandotromp@gmail.com',
             From: "emporiosaudecuritiba@gmail.com",
@@ -183,8 +183,7 @@ function sendMail() {
         }).then(
             message => alert(`Obrigado pela visita Sr(a) ${nome}, entrarei em contato o mais breve possível!`)
         );
-        stop = document.querySelector('.loading');
-        stop.style.display = 'none';
+        loading.style.display = 'none';
         document.getElementById('contact-form').reset();
     });
 }
@@ -193,6 +192,8 @@ function sendMail() {
 var Email = {
     send: function (a) {
         return new Promise(function (n, e) {
+            loading = document.querySelector('.loading');
+            loading.style.display = 'block';
             a.nocache = Math.floor(1e6 * Math.random() + 1), a.Action = "Send";
             var t = JSON.stringify(a);
             Email.ajaxPost("https://smtpjs.com/v3/smtpjs.aspx?", t, function (e) { n(e) })
