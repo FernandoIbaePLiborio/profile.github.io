@@ -14,7 +14,7 @@
     <div include-html="header.html"></div>
     <div class="container my-5">
         <div class="row">
-            <!-- <a href="#confirmModalID" class="card-link" data-target="#confirmModalID" data-toggle="modal">Donec</a> -->
+            <!-- <a href="#confirmModalID" class="card-link" data-toggle="modal">Donec</a> -->
             <div class="col-sm-6 col-md-4 sidenav text-center">
                 <a href="https://github.com/FernandoIbaePLiborio" target="_blank" title="Repositories">
                     <img src="imagens/perfil.jpg" class="img-fluid navimg" style="width:50%">
@@ -43,22 +43,23 @@
         <div class="row justify-content-center">
             <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                 <form id="contact-form">
+                    <div class="loading">Loading&#8230;</div>
                     <div class="form-row">
                         <div class="form-group col-sm-6">
                             <input type="text" class="form-control" id="name" placeholder="Name *" required onkeydown="validateFields()">
                             <span class='msg-erro msg-name'></span>
                         </div>
                         <div class="form-group col-sm-6">
-                            <input type="text" class="form-control" id="fone" placeholder="Fone" onkeypress="mascara(this, mtel)" maxlength="15">
+                            <input type="text" class="form-control red-border" id="email" placeholder="Email *" required onkeydown="validateFields()">
+                            <span class='msg-erro msg-email'></span>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-sm-6">
-                            <input type="text" class="form-control" id="email" placeholder="Email *" required onkeydown="validateFields()">
-                            <span class='msg-erro msg-email'></span>
+                            <input type="text" class="form-control" id="subject" placeholder="Subject">
                         </div>
                         <div class="form-group col-sm-6">
-                            <input type="text" class="form-control" id="subject" placeholder="Subject">
+                            <input type="text" class="form-control" id="fone" placeholder="Fone" onkeypress="mascara(this, mtel)" maxlength="15">
                         </div>
                     </div>
                     <div class="form-row">
@@ -178,7 +179,7 @@
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="confirmModalID" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal" id="confirmModalID" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -212,18 +213,18 @@
     </div>
     <div include-html="footer.html"></div>
     <script>includeHTML()</script>
-<!--     <script>
+    <!-- <script>
         function modalSet() {
-            const myModal = document.getElementById('confirmModalID');
+            const modal = document.getElementById('confirmModalID');
             var myModalInstance = new Modal(myModal,
             { // options object
                 content: '<div class="modal-body">Some content to be set on init</div>', // sets modal content
                 backdrop: 'static', // we don't want to dismiss Modal when Modal or backdrop is the click event target
                 keyboard: false // we don't want to dismiss Modal on pressing Esc key
             });
-            /* var myModalInstance = new Modal(myModal, options); */
-            console.log(myModalInstance);
-            myModalInstance.show();
+            var myModalInstance = new Modal(myModal, options);
+            console.log(modal);
+            modal.classList.add('mostrar');
         }
         modalSet();
     </script> -->

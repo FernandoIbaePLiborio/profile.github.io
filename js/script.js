@@ -111,6 +111,7 @@ function displayData(id, data) {
         a.innerHTML = a.innerHTML.replace(r, result);
     }
 }
+
 function includeHTML(cb) {
     var z, i, elmnt, file, xhttp;
     z = document.getElementsByTagName("*");
@@ -158,6 +159,8 @@ function http(target, readyfunc, xml, method) {
 /* Send Email via SMTPJS */
 function sendMail() {
     document.getElementById('contact-form').addEventListener('submit', function (event) {
+        loading = document.querySelector('.loading');
+        loading.style.display = 'block';
         event.preventDefault();
         const output = `
         <p>You have a new contact request</p>
@@ -171,16 +174,17 @@ function sendMail() {
         <p>${this.textMessage.value}</p>
         `;
         const nome = this.name.value;
-        console.log(nome);
         Email.send({
             SecureToken: "b4b1e026-e9df-45da-8742-f0876782c3dc",
-            To: 'emporiosaudecuritiba@gmail.com',
+            To: 'nandotromp@gmail.com',
             From: "emporiosaudecuritiba@gmail.com",
             Subject: this.subject.value,
             Body: output
         }).then(
             message => alert(`Obrigado pela visita Sr(a) ${nome}, entrarei em contato o mais breve possível!`)
         );
+        stop = document.querySelector('.loading');
+        stop.style.display = 'none';
         document.getElementById('contact-form').reset();
     });
 }
@@ -208,7 +212,7 @@ var Email = {
     }
 };
 
-/* Validação de campos */
+/* Validação de Email */
 function validateFields() {
     const filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     const invalidForm = document.querySelector('form:invalid');
