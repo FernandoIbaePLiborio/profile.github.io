@@ -173,7 +173,6 @@ function sendMail() {
         <p>${this.textMessage.value}</p>
         `;
         const nome = this.name.value;
-
         await Email.send({
             SecureToken: "b4b1e026-e9df-45da-8742-f0876782c3dc",
             To: 'nandotromp@gmail.com',
@@ -181,10 +180,21 @@ function sendMail() {
             Subject: this.subject.value,
             Body: output
         }).then(
-            message => alert(`Obrigado pela visita Sr(a) ${nome}, entrarei em contato o mais breve possível!`)
+            /* message => alert(`Obrigado pela visita Sr(a) ${nome}, entrarei em contato o mais breve possível!`) */
+            message => modalSet('modal-confirm')
         );
-        loading.style.display = 'none';
         document.getElementById('contact-form').reset();
+    });
+}
+
+function modalSet(id) {
+    const modal = document.getElementById(id);
+    loading.style.display = 'none';
+    modal.classList.add('mostrar');
+    modal.addEventListener('click', (e) => {
+        if (e.target.id == id || e.target.className == 'close-modal-native'){
+            modal.classList.remove('mostrar');
+        }
     });
 }
 
@@ -324,3 +334,20 @@ function mnum(v) {
     v = v.replace(/\D/g, "");					//Remove tudo o que não é dígito
     return v;
 }
+
+/* Exemplo promise */
+/* function scaryClown() {
+    return new Promise(resolve => {
+        loading = document.querySelector('.loading');
+        loading.style.display = 'block';
+        setTimeout(() => {
+            resolve('🤡');
+        }, 5000);
+    });
+}
+async function msg() {
+    const msg = await scaryClown();
+    loading.style.display = 'none';
+    console.log('Message:', msg);
+}
+msg(); */

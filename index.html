@@ -14,7 +14,6 @@
     <div include-html="header.html"></div>
     <div class="container my-5">
         <div class="row">
-            <!-- <a href="#confirmModalID" class="card-link" data-toggle="modal">Donec</a> -->
             <div class="col-sm-6 col-md-4 sidenav text-center">
                 <a href="https://github.com/FernandoIbaePLiborio" target="_blank" title="Repositories">
                     <img src="imagens/perfil.jpg" class="img-fluid navimg" style="width:50%">
@@ -46,7 +45,7 @@
                     <div class="loading">Loading&#8230;</div>
                     <div class="form-row">
                         <div class="form-group col-sm-6">
-                            <input type="text" class="form-control" id="name" placeholder="Name *" required onkeydown="validateFields()">
+                            <input type="text" class="form-control" id="name" placeholder="Name *" required onkeydown="validateFields()"  >
                             <span class='msg-erro msg-name'></span>
                         </div>
                         <div class="form-group col-sm-6">
@@ -178,74 +177,20 @@
             </blockquote>
         </div>
     </div>
+    
     <!-- Modal -->
-    <div class="modal" id="confirmModalID" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Palavras não Características</h5>
-                    <button type="buttom" class="close" data-dismiss="modal">
-                        <span>&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-6">
-                                <h5>Título</h5>
-                                <p>et Malorum" (Os Extremos do Bem e do Mal), de Cícero, escrito em 45 AC. Este livro é
-                                    um tratado de teoria da ética muito popular na época da Renascença. A primeira linha
-                                    de Lorem Ipsum, "Lorem Ipsum dolor sit amet..." vem de uma</p>
-                            </div>
-                            <div class="col-6">
-                                <h5>Título</h5>
-                                <p>embaraçoso escrito escondido no meio do texto. Todos os geradores de Lorem Ipsum na
-                                    internet tendem a repetir pedaços predefinidos conforme necessário,</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Done</button>
-                </div>
-            </div>
+    <div id="modal-confirm" class="modal-native-container">
+        <div class="modal-native">
+            <button class="close-modal-native">x</button>
+            <h3>Obrigado! Em breve entrarei em contato no email informado.</h3>
         </div>
     </div>
+
+    <!-- footer -->
     <div include-html="footer.html"></div>
+
+    <!-- scripts -->
     <script>includeHTML()</script>
-    <!-- <script>
-        function modalSet() {
-            const modal = document.getElementById('confirmModalID');
-            var myModalInstance = new Modal(myModal,
-            { // options object
-                content: '<div class="modal-body">Some content to be set on init</div>', // sets modal content
-                backdrop: 'static', // we don't want to dismiss Modal when Modal or backdrop is the click event target
-                keyboard: false // we don't want to dismiss Modal on pressing Esc key
-            });
-            var myModalInstance = new Modal(myModal, options);
-            console.log(modal);
-            modal.classList.add('mostrar');
-        }
-        modalSet();
-    </script> -->
-    <!-- Exemplo promise
-    <script>
-        function scaryClown() {
-            return new Promise(resolve => {
-                loading = document.querySelector('.loading');
-                loading.style.display = 'block';
-                setTimeout(() => {
-                    resolve('🤡');
-                }, 5000);
-            });
-        }
-        async function msg() {
-            const msg = await scaryClown();
-            loading.style.display = 'none';
-            console.log('Message:', msg);
-        }
-        msg();
-    </script> -->
     <script src="modules/jquery/dist/jquery.js"></script>
     <script src="modules/popper.js/dist/umd/popper.js"></script>
     <script src="modules/bootstrap/dist/js/bootstrap.js"></script>
