@@ -181,18 +181,19 @@ function sendMail() {
             Body: output
         }).then(
             /* message => alert(`Obrigado pela visita Sr(a) ${nome}, entrarei em contato o mais breve possível!`) */
-            message => modalSet('modal-confirm')
+            message => modalSet('modal-confirm', `Obrigado pela visita Sr(a) ${nome}, entrarei em contato o mais breve possível! Tenha um excelente dia.`)
         );
         document.getElementById('contact-form').reset();
     });
 }
 
-function modalSet(id) {
+function modalSet(id, msg) {
     const modal = document.getElementById(id);
     loading.style.display = 'none';
     modal.classList.add('mostrar');
+    document.getElementById("return").innerHTML = msg;
     modal.addEventListener('click', (e) => {
-        if (e.target.id == id || e.target.className == 'close-modal-native'){
+        if (e.target.id == id || e.target.className == 'close-modal-native') {
             modal.classList.remove('mostrar');
         }
     });
@@ -223,34 +224,34 @@ var Email = {
     }
 };
 
-/* Validação de Email */
+/* Fields Validation */
 function validateFields() {
     const filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    const invalidForm = document.querySelector('form:invalid');
-    const submitBtn = document.getElementById('btnSendMail');
     const name = document.getElementById('name');
     const email = document.getElementById('email');
     let contErro = '';
-    caixa_nome = document.querySelector('.msg-name');
-    caixa_email = document.querySelector('.msg-email');
+    span_name = document.querySelector('.msg-name');
+    span_email = document.querySelector('.msg-email');
     if (email.value == "") {
-        caixa_email.innerHTML = "Favor preencher o E-mail";
-        caixa_email.style.display = 'block';
+        span_email.innerHTML = "Favor preencher o E-mail";
+        span_email.style.display = 'block';
         contErro += 1;
     } else if (filtro.test(email.value)) {
-        caixa_email.style.display = 'none';
+        span_email.style.display = 'none';
     } else {
-        caixa_email.innerHTML = "Formato do E-mail inválido";
-        caixa_email.style.display = 'block';
+        span_email.innerHTML = "Formato do E-mail inválido";
+        span_email.style.display = 'block';
         contErro += 1;
     }
     if (name.value == '') {
-        caixa_nome.innerHTML = "Favor preencher o Nome";
-        caixa_nome.style.display = 'block';
+        span_name.innerHTML = "Favor preencher o Nome";
+        span_name.style.display = 'block';
         contErro += 1;
     } else {
-        caixa_nome.style.display = 'none';
+        span_name.style.display = 'none';
     }
+    const invalidForm = document.querySelector('form:invalid');
+    const submitBtn = document.getElementById('btnSendMail');
     if (invalidForm || contErro != '') {
         submitBtn.setAttribute('disabled', true);
     } else {

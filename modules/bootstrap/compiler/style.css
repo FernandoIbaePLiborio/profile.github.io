@@ -30,7 +30,8 @@ footer.fix-down {
 }
 
 .red-border {
-  border: 1 solid #ff0000;
+  border-style: 1 solid #ff0000;
+  display: none;
 }
 
 /* Absolute Center Spinner */
@@ -152,12 +153,11 @@ footer.fix-down {
     transform: rotate(360deg);
   }
 }
-
 /* native-modal */
 .modal-native-container {
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,.5);
+  background: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0px;
   left: 0px;
@@ -166,6 +166,7 @@ footer.fix-down {
   justify-content: center;
   align-items: center;
 }
+
 .modal-native {
   background: white;
   width: 40%;
@@ -175,9 +176,11 @@ footer.fix-down {
   box-shadow: 0 0 0 10px white;
   position: relative;
 }
+
 .modal-native-container.mostrar {
   display: flex;
 }
+
 .close-modal-native {
   position: absolute;
   font-size: 1.2em;
@@ -191,20 +194,21 @@ footer.fix-down {
   color: white;
   font-family: "PT Mono", monospace;
   cursor: pointer;
-  box-shadow: 0 4px 4px 0 rgba(0,0,0,.3);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
 }
+
 @keyframes modal {
   from {
-      opacity: 0;
-      transform: translate3d(0, -60px, 0);
+    opacity: 0;
+    transform: translate3d(0, -60px, 0);
   }
   to {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 .mostrar .modal-native {
-  animation: modal .3s;
+  animation: modal 0.3s;
 }
 
 /*# sourceMappingURL=style.css.map */

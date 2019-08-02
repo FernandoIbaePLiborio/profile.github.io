@@ -45,11 +45,11 @@
                     <div class="loading">Loading&#8230;</div>
                     <div class="form-row">
                         <div class="form-group col-sm-6">
-                            <input type="text" class="form-control" id="name" placeholder="Name *" required onkeydown="validateFields()"  >
+                            <input type="text" class="form-control" id="name" placeholder="Name *" required onblur="validateFields()">
                             <span class='msg-erro msg-name'></span>
                         </div>
                         <div class="form-group col-sm-6">
-                            <input type="text" class="form-control red-border" id="email" placeholder="Email *" required onkeydown="validateFields()">
+                            <input type="text" class="form-control" id="email" placeholder="Email *" required onblur="validateFields()">
                             <span class='msg-erro msg-email'></span>
                         </div>
                     </div>
@@ -182,7 +182,7 @@
     <div id="modal-confirm" class="modal-native-container">
         <div class="modal-native">
             <button class="close-modal-native">x</button>
-            <h3>Obrigado! Em breve entrarei em contato no email informado.</h3>
+            <label id="return"></label>
         </div>
     </div>
 
