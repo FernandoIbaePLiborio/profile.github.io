@@ -286,7 +286,6 @@ function mtel(v) {
         v = v.replace(/(\d{5})(\d)/, "$1-$2")    //Coloca hífen entre o quarto e o quinto dígitos
     } else {
         v = v.replace(/(\d{4})(\d)/, "$1-$2")
-
     }
     return v
 }
@@ -334,6 +333,17 @@ function mrg(v) {
 function mnum(v) {
     v = v.replace(/\D/g, "");					//Remove tudo o que não é dígito
     return v;
+}
+
+function numberMobile(e){
+    e.target.value = e.target.value.replace(/[^\d]/g,'');
+    e.target.value = e.target.value.replace(/^(\d\d)(\d)/g, "($1) $2") //Coloca parênteses em volta dos dois primeiros dígitos
+    if (e.target.value.length > 13) {
+        e.target.value = e.target.value.replace(/(\d{5})(\d)/, "$1-$2")    //Coloca hífen entre o quarto e o quinto dígitos
+    } else {
+        e.target.value = e.target.value.replace(/(\d{4})(\d)/, "$1-$2")
+    }
+    return false;
 }
 
 /* Exemplo promise */
