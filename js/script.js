@@ -1,4 +1,3 @@
-
 var dataObject = {};
 function displayData(id, data) {
     var htmlObj, htmlTemplate, html, arr = [], a, l, rowClone, x, j, i, ii, cc, repeat, repeatObj, repeatX = "";
@@ -173,17 +172,16 @@ function sendMail() {
         <p>${this.textMessage.value}</p>
         `;
         const nome = this.name.value;
-
-        await Teste.sen().then(message => modalSet('modal-confirm', `Obrigado pela visita Sr(a) ${nome}, entrarei em contato o mais breve possível! Tenha um excelente dia.`));
-        /* await Email.send({
+        await Email.send({
             SecureToken: "b4b1e026-e9df-45da-8742-f0876782c3dc",
             To: 'nandotromp@gmail.com',
             From: "emporiosaudecuritiba@gmail.com",
             Subject: this.subject.value,
             Body: output
         }).then(
+            /* message => alert(`Obrigado pela visita Sr(a) ${nome}, entrarei em contato o mais breve possível!`) */
             message => modalSet('modal-confirm', `Obrigado pela visita Sr(a) ${nome}, entrarei em contato o mais breve possível! Tenha um excelente dia.`)
-        ); */
+        );
         document.getElementById('contact-form').reset();
     });
 }
@@ -227,34 +225,29 @@ var Email = {
 
 /* Fields Validation */
 function validateFields() {
-    const input = document.querySelector('input');
+    const filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
     let contErro = '';
-    if (input.id == 'email') {
-        filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-        email = document.getElementById('email');
-        span_email = document.querySelector('.msg-email');
-        if (email.value == "") {
-            span_email.innerHTML = "Favor preencher o E-mail";
-            span_email.style.display = 'block';
-            contErro += 1;
-        } else if (filtro.test(email.value)) {
-            span_email.style.display = 'none';
-        } else {
-            span_email.innerHTML = "Formato do E-mail inválido";
-            span_email.style.display = 'block';
-            contErro += 1;
-        }
+    span_name = document.querySelector('.msg-name');
+    span_email = document.querySelector('.msg-email');
+    if (email.value == "") {
+        span_email.innerHTML = "Favor preencher o E-mail";
+        span_email.style.display = 'block';
+        contErro += 1;
+    } else if (filtro.test(email.value)) {
+        span_email.style.display = 'none';
+    } else {
+        span_email.innerHTML = "Formato do E-mail inválido";
+        span_email.style.display = 'block';
+        contErro += 1;
     }
-    if (input.id == 'name') {
-        name = document.getElementById('name');
-        span_name = document.querySelector('.msg-name');
-        if (name.value == '') {
-            span_name.innerHTML = "Favor preencher o Nome";
-            span_name.style.display = 'block';
-            contErro += 1;
-        } else {
-            span_name.style.display = 'none';
-        }
+    if (name.value == '') {
+        span_name.innerHTML = "Favor preencher o Nome";
+        span_name.style.display = 'block';
+        contErro += 1;
+    } else {
+        span_name.style.display = 'none';
     }
     const invalidForm = document.querySelector('form:invalid');
     const submitBtn = document.getElementById('btnSendMail');
@@ -292,7 +285,6 @@ function mtel(v) {
         v = v.replace(/(\d{5})(\d)/, "$1-$2")    //Coloca hífen entre o quarto e o quinto dígitos
     } else {
         v = v.replace(/(\d{4})(\d)/, "$1-$2")
-
     }
     return v
 }
@@ -341,23 +333,23 @@ function mnum(v) {
     v = v.replace(/\D/g, "");					//Remove tudo o que não é dígito
     return v;
 }
-var Teste = {
-    sen: function scaryClown() {
-        return new Promise(resolve => {
-            loading = document.querySelector('.loading');
-            loading.style.display = 'block';
-            setTimeout(() => {
-                resolve('🤡');
-            }, 5000);
-        });
+
+function numberMobile(e) {
+    e.target.value = e.target.value.replace(/[^\d]/g, '');
+    e.target.value = e.target.value.replace(/^(\d\d)(\d)/g, "($1) $2") //Coloca parênteses em volta dos dois primeiros dígitos
+    if (e.target.value.length > 13) {
+        e.target.value = e.target.value.replace(/(\d{5})(\d)/, "$1-$2")    //Coloca hífen entre o quarto e o quinto dígitos
+    } else {
+        e.target.value = e.target.value.replace(/(\d{4})(\d)/, "$1-$2")
     }
+    return false;
 }
-function foneNumber() {
-    document.getElementById('fone').addEventListener('input', function (e) {
-        var aux = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,4})(\d{0,4})/);
-        e.target.value = !aux[2] ? aux[1] : '(' + aux[1] + ') ' + aux[2] + (aux[3] ? '-' + aux[3] : '');
-    });
-}
+
+document.getElementById('fone').addEventListener('input', function (e) {
+    var aux = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,4})(\d{0,4})/);
+    e.target.value = !aux[2] ? aux[1] : '(' + aux[1] + ') ' + aux[2] + (aux[3] ? '-' + aux[3] : '');
+});
+
 /* Exemplo promise */
 /* function scaryClown() {
     return new Promise(resolve => {
