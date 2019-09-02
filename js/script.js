@@ -334,7 +334,7 @@ function mnum(v) {
     v = v.replace(/\D/g, "");					//Remove tudo o que não é dígito
     return v;
 }
-/* function mask() {
+function mask() {
     document.getElementById('fone').addEventListener('input', function (e) {
         if (e.target.value.length > 14) {
             var aux = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);  //Coloca hífen entre o quarto e o quinto dígitos
@@ -343,7 +343,7 @@ function mnum(v) {
         }
         e.target.value = !aux[2] ? aux[1] : '(' + aux[1] + ') ' + aux[2] + (aux[3] ? '-' + aux[3] : '');
     });
-} */
+}
 
 /* Exemplo promise */
 /* function scaryClown() {
