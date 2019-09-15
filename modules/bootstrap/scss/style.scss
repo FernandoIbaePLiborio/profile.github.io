@@ -11,8 +11,7 @@ footer.fix-down {
     border-top: 1px soid #103e94;
     background: #2d3eda;
     bottom: 0;
-    left: 0;
-    height: 60px;
+    position: relative;
     width: 100%;
 }
 .scrollSpySite {
@@ -241,4 +240,7 @@ Custom media queries
 }
 .nav-link:hover {
   cursor: pointer;
+}
+.container-fix {
+  height: 100vh;
 }
