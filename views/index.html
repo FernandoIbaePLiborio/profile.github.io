@@ -2,7 +2,8 @@
 <html lang="pt-br">
 
 <head>
-    <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" charset="utf-8">
+    <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        charset="utf-8">
     <link rel="shortcut icon" href="../imagens/java.ico" type="image/x-icon">
     <link rel="stylesheet" href="../modules/bootstrap/compiler/bootstrap.css">
     <link rel="stylesheet" href="../modules/bootstrap/compiler/style.css">
@@ -17,11 +18,13 @@
         <div class="row m-4">
             <div class="col-xs-12 col-sm-5 col-md-4 text-center">
                 <a href="https://github.com/FernandoIbaePLiborio" target="_blank" title="Repositories">
-                    <img src="../imagens/perfil_pb.jpeg" class="rounded img-thumbnail border-info p-2" style="max-width: 200px;">
+                    <img src="../imagens/perfil_pb.jpeg" class="rounded img-thumbnail border-info p-2"
+                        style="max-width: 200px;">
                 </a>
             </div>
             <div class="col-xs-12 col-sm-7 col-md-8 mt-3 align-self-center text-center">
-                <h1 class="display-4"><i class="fa fa-paper-plane text-primary" aria-hidden="true"></i> Send me an E-mail</h1>
+                <h1 class="display-4"><i class="fa fa-paper-plane text-primary" aria-hidden="true"></i> Send me an
+                    E-mail</h1>
             </div>
         </div>
         <!-- col-xs-10 col-sm-10 col-md-10 col-lg-10 -->
@@ -32,12 +35,12 @@
                     <div class="form-row">
                         <div class="form-group col-sm-6">
                             <input type="text" class="form-control" id="name" placeholder="Name *" required
-                                onblur="validateFields()">
+                                onkeyup="validateFields()">
                             <span class='msg-erro msg-name'></span>
                         </div>
                         <div class="form-group col-sm-6">
                             <input type="text" class="form-control" id="email" placeholder="Email *" required
-                                onblur="validateFields()">
+                                onkeyup="validateFields()">
                             <span class='msg-erro msg-email'></span>
                         </div>
                     </div>
@@ -65,7 +68,7 @@
                 </form>
             </div>
         </div>
-        <div class="row mt-5">
+        <div class="row mt-5" style="display: none;">
             <div class="col-sm-6">
                 <div class="text-center mb-5">
                     <a class="link" href="portfolio.html">
@@ -78,7 +81,7 @@
                 <div class="text-center">
                     <a class="link" href="curriculo.html">
                         <h6 class="text-black-50">CURRICULO</h6>
-                        <img src="../imagens/curriculo.jpg"  alt="Curriculo" title="Curriculo" style="max-width: 170px;">
+                        <img src="../imagens/curriculo.jpg" alt="Curriculo" title="Curriculo" style="max-width: 170px;">
                     </a>
                 </div>
             </div>
@@ -99,26 +102,22 @@
                 <div class="col-12">
                     <ul class="nav nav-pills justify-content-center mb-5" id="pills-nav" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link" id="nav-pills-01" data-toggle="pill" href="#nav-item-01">Curitiba</a>
+                            <a class="nav-link active" id="nav-pills-01" data-toggle="pill" href="#nav-item-01">Curitiba</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="nav-pills-02" data-toggle="pill" href="#nav-item-02">Tom and
-                                Jerry</a>
+                            <a class="nav-link" id="nav-pills-02" data-toggle="pill" href="#nav-item-02">Tom and Jerry</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" id="nav-pills-03" data-toggle="pill" href="#nav-item-03">Take
-                                Five</a>
+                            <a class="nav-link" id="nav-pills-03" data-toggle="pill" href="#nav-item-03">Take Five</a>
                         </li>
                     </ul>
                     <div class="tab-content" id="nav-pills-content">
-                        <div class="tab-pane fade show" id="nav-item-01" role="tabpanel">
+                        <div class="tab-pane fade show active" id="nav-item-01" role="tabpanel">
                             <div class="row">
                                 <div class="col-sm-6 pb-3">
                                     <div class="embed-responsive embed-responsive-16by9">
                                         <iframe src="https://player.vimeo.com/video/39394752" frameborder="0"
                                             allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                        <p><a href="https://vimeo.com/39394752">Compartilhe o Amor - Curitiba</a> from
-                                            <a href="https://vimeo.com/ludicafilmes">L&uacute;dica Filmes</a></p>
                                     </div>
                                 </div>
                                 <div class="col-sm-5 offset-sm-1 align-self-center m-3">
@@ -132,10 +131,8 @@
                             <div class="row">
                                 <div class="col-sm-6 pb-3">
                                     <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe src="https://player.vimeo.com/video/249786539" frameborder="0"
-                                            allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                        <p><a href="https://vimeo.com/249786539">Tom and Jerry Episode 36. Old
-                                                Rockin&#039; Chair Tom</a></p>
+                                        <iframe src="https://player.vimeo.com/video/183075954" 
+                                            frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                                     </div>
                                 </div>
                                 <div class="col-sm-5 offset-sm-1 align-self-center m-3">
@@ -151,7 +148,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade show active" id="nav-item-03" role="tabpanel">
+                        <div class="tab-pane fade show" id="nav-item-03" role="tabpanel">
                             <div class="row">
                                 <div class="col-sm-6 pb-3">
                                     <div class="embed-responsive embed-responsive-16by9">
@@ -168,6 +165,32 @@
                                 </div>
                             </div>
                         </div>
+                        <h:panelGroup style="display: none;">
+                            
+                            <div class="tab-pane fade show" id="nav-item-04" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-sm-6 pb-3">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe src="https://player.vimeo.com/video/249786539" frameborder="0"
+                                                allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                            <p><a href="https://vimeo.com/249786539">Tom and Jerry Episode 36. Old
+                                                    Rockin&#039; Chair Tom</a></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5 offset-sm-1 align-self-center m-3">
+                                        <p class="text-justify">O centro da trama se baseia geralmente em tentativas
+                                            frustradas de Tom de capturar Jerry, e o caos e a destruição que se segue. Tom
+                                            raramente consegue capturar Jerry, principalmente por causa das habilidades do
+                                            engenhoso ratinho, e também por causa de sua própria estupidez. As perseguições
+                                            eram eletrizantes e sempre vinham acompanhadas por boa trilha sonora. Também
+                                            eram utilizadas diversas armadilhas e truques que no final não davam resultado
+                                            satisfatório, como bombas e ratoeiras, coisas que eram fundamentais na
+                                            rivalidade entre o gato e o rato. Alguns personagens também marcam presença na
+                                            trama, como o bulldog Spike e o rival de Tom, o gato Butch.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </h:panelGroup>
                     </div>
                 </div>
             </div>
@@ -176,7 +199,8 @@
             <blockquote class="blockquote text-center">
                 <p class="lead text-muted"><em><small>"O sucesso não é garantido, mas o fracasso é certo se você não
                             estiver emocionalmente envolvido em seu trabalho."</small></em></p>
-                <footer class="blockquote-footer ">Biz Stone <cite title="Source Title"> Fundador do Twitter</cite></footer>
+                <footer class="blockquote-footer ">Biz Stone <cite title="Source Title"> Fundador do Twitter</cite>
+                </footer>
             </blockquote>
         </div>
     </div>

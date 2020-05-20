@@ -226,33 +226,41 @@ var Email = {
 
 /* Fields Validation */
 function validateFields() {
-    const filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    const name = document.getElementById('name');
-    const email = document.getElementById('email');
-    let contErro = '';
-    span_name = document.querySelector('.msg-name');
-    span_email = document.querySelector('.msg-email');
-    if (email.value == "") {
-        span_email.innerHTML = "Favor preencher o E-mail";
-        span_email.style.display = 'block';
-        contErro += 1;
-    } else if (filtro.test(email.value)) {
-        span_email.style.display = 'none';
-    } else {
-        span_email.innerHTML = "Formato do E-mail inválido";
-        span_email.style.display = 'block';
-        contErro += 1;
-    }
-    if (name.value == '') {
-        span_name.innerHTML = "Favor preencher o Nome";
-        span_name.style.display = 'block';
-        contErro += 1;
-    } else {
-        span_name.style.display = 'none';
-    }
+   
+    document.getElementById('name').addEventListener('input', function (e) {
+        let count = '';
+        span_name = document.querySelector('.msg-name');
+        e.target.value = e.target.value.replace(/[^a-z]+/, '');
+        if (e.target.value.length < 3) {
+            span_name.innerHTML = "Preenchimento mínimo de 3 caracteres!";
+            span_name.style.display = 'block';
+            count += 1;
+        } else {
+            span_name.style.display = 'none';
+            validator(count);
+        }
+    });
+    document.getElementById('email').addEventListener('input', function (e) {
+        let count = '';
+        span_email = document.querySelector('.msg-email');
+        const testEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        if (e.target.value.length > 3) {
+            if (testEmail.test(e.target.value)) {
+                span_email.style.display = 'none';
+            } else {
+                span_email.innerHTML = "Formato do E-mail inválido";
+                span_email.style.display = 'block';
+                count += 1;
+            }
+            validator(count);
+        }
+    });
+}
+
+function validator(count) {
     const invalidForm = document.querySelector('form:invalid');
     const submitBtn = document.getElementById('btnSendMail');
-    if (invalidForm || contErro != '') {
+    if (invalidForm || count != '') {
         submitBtn.setAttribute('disabled', true);
     } else {
         submitBtn.disabled = false;
