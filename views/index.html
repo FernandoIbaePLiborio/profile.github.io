@@ -1,229 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-    <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        charset="utf-8">
-    <link rel="shortcut icon" href="../imagens/java.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../modules/bootstrap/compiler/bootstrap.css">
-    <link rel="stylesheet" href="../modules/bootstrap/compiler/style.css">
-    <link rel="stylesheet" href="../modules/bootstrap/compiler/animated.css">
-    <link rel="stylesheet" href="../modules/font-awesome/css/font-awesome.css">
-    <script type="text/javascript" src="../js/script.js"></script>
-</head>
+    <head>
+        <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" charset="utf-8">
+        <link rel="shortcut icon" href="../imagens/java.ico" type="image/x-icon">
+        <link rel="stylesheet" href="../modules/bootstrap/compiler/bootstrap.css">
+        <link rel="stylesheet" href="../modules/bootstrap/compiler/style.css">
+        <link rel="stylesheet" href="../modules/bootstrap/compiler/animated.css">
+        <link rel="stylesheet" href="../modules/font-awesome/css/font-awesome.css">
+        
+    </head>
 
-<body>
-    <div include-html="header.html"></div>
-    <div class="container-fluid my-5">
-        <div class="row m-4">
-            <div class="col-xs-12 col-sm-5 col-md-4 text-center">
-                <a href="https://github.com/FernandoIbaePLiborio" target="_blank" title="Repositories">
-                    <img src="../imagens/perfil_pb.jpeg" class="rounded img-thumbnail border-info p-2"
-                        style="max-width: 200px;">
-                </a>
-            </div>
-            <div class="col-xs-12 col-sm-7 col-md-8 mt-3 align-self-center text-center">
-                <h1 class="display-4"><i class="fa fa-paper-plane text-primary" aria-hidden="true"></i> Send me an
-                    E-mail</h1>
-            </div>
-        </div>
-        <!-- col-xs-10 col-sm-10 col-md-10 col-lg-10 -->
-        <div class="row justify-content-center my-5 animated bounceInLeft">
-            <div class="col-10">
-                <form id="contact-form">
-                    <div class="loading">Loading&#8230;</div>
-                    <div class="form-row">
-                        <div class="form-group col-sm-6">
-                            <input type="text" class="form-control" id="name" placeholder="Name *" required
-                                onkeyup="validateFields()">
-                            <span class='msg-erro msg-name'></span>
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <input type="text" class="form-control" id="email" placeholder="Email *" required
-                                onkeyup="validateFields()">
-                            <span class='msg-erro msg-email'></span>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-sm-6">
-                            <input type="text" class="form-control" id="subject" placeholder="Subject">
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <input type="text" class="form-control" id="fone" placeholder="Fone">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-12">
-                            <textarea class="form-control" id="textMessage" rows="3"
-                                placeholder="Email body"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-row float-right">
-                        <button class="btn btn-primary" type="submit" id="btnSendMail" disabled
-                            onclick="sendMail()">Send</button>
-                        <!-- <a tabindex="0" class="btn btn-secondary ml-2" role="button" data-toggle="popover"
-                            data-placement="right" data-trigger="focus" title="Exibição do popover"
-                            data-content="Exibição do texto ao focus do botão">Ajuda</a> -->
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="row mt-5" style="display: none;">
-            <div class="col-sm-6">
-                <div class="text-center mb-5">
-                    <a class="link" href="portfolio.html">
-                        <h6 class="text-black-50">PORTFOLIO</h6>
-                        <img src="../imagens/portfolio.png" alt="Portfolio" title="Portfolio" style="max-width: 170px;">
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="text-center">
-                    <a class="link" href="curriculo.html">
-                        <h6 class="text-black-50">CURRICULO</h6>
-                        <img src="../imagens/curriculo.jpg" alt="Curriculo" title="Curriculo" style="max-width: 170px;">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- jumbotron -->
-    <div class="jumbotron jumbotron-fluid pb-2">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h1 class="lead mb-5">
-                        <i class="fa fa-camera-retro fa-lg"></i> Aprecie trabalhos divulgados no Vimeo.
-                    </h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <ul class="nav nav-pills justify-content-center mb-5" id="pills-nav" role="tablist">
+    <body>
+        <!-- header -->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="#home">Fernando Ibaê</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-portfolio">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="navbar-portfolio" class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" id="nav-pills-01" data-toggle="pill" href="#nav-item-01">Curitiba</a>
+                            <a class="nav-link" href="#home" >Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="nav-pills-02" data-toggle="pill" href="#nav-item-02">Tom and Jerry</a>
+                            <a class="nav-link" href="#portfolio" >Portfolio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="nav-pills-03" data-toggle="pill" href="#nav-item-03">Take Five</a>
+                            <a class="nav-link" href="#curriculo" >Curriculo</a>
                         </li>
                     </ul>
-                    <div class="tab-content" id="nav-pills-content">
-                        <div class="tab-pane fade show active" id="nav-item-01" role="tabpanel">
-                            <div class="row">
-                                <div class="col-sm-6 pb-3">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe src="https://player.vimeo.com/video/39394752" frameborder="0"
-                                            allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                <div class="col-sm-5 offset-sm-1 align-self-center m-3">
-                                    <p class="text-justify">O que é o amor, se não algo que a gente compartilha? Em
-                                        homenagem ao aniversário da nossa cidade, compartilhe esse vídeo e demonstre seu
-                                        amor por Curitiba.</p>
-                                </div>
+                    <ul class="navbar-nav ml-auto pr-5">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navDrop">
+                                Social
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="https://www.linkedin.com/in/fernandoIbae/" class="dropdown-item"><i
+                                        class="fa fa-linkedin-square" aria-hidden="true"></i> Linkedin</a>
+                                <a href="https://www.instagram.com/fernando.ibae/" class="dropdown-item"><i
+                                        class="fa fa-instagram" aria-hidden="true"></i> Instagram</a>
+                                <a href="https://github.com/FernandoIbaePLiborio" class="dropdown-item"><i class="fa fa-github"
+                                        aria-hidden="true"></i> Github</a>
                             </div>
-                        </div>
-                        <div class="tab-pane fade show" id="nav-item-02" role="tabpanel">
-                            <div class="row">
-                                <div class="col-sm-6 pb-3">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe src="https://player.vimeo.com/video/183075954" 
-                                            frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                <div class="col-sm-5 offset-sm-1 align-self-center m-3">
-                                    <p class="text-justify">O centro da trama se baseia geralmente em tentativas
-                                        frustradas de Tom de capturar Jerry, e o caos e a destruição que se segue. Tom
-                                        raramente consegue capturar Jerry, principalmente por causa das habilidades do
-                                        engenhoso ratinho, e também por causa de sua própria estupidez. As perseguições
-                                        eram eletrizantes e sempre vinham acompanhadas por boa trilha sonora. Também
-                                        eram utilizadas diversas armadilhas e truques que no final não davam resultado
-                                        satisfatório, como bombas e ratoeiras, coisas que eram fundamentais na
-                                        rivalidade entre o gato e o rato. Alguns personagens também marcam presença na
-                                        trama, como o bulldog Spike e o rival de Tom, o gato Butch.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade show" id="nav-item-03" role="tabpanel">
-                            <div class="row">
-                                <div class="col-sm-6 pb-3">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe src="https://player.vimeo.com/video/30716912?color=cccccc"
-                                            frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                <div class="col-sm-5 offset-sm-1 align-self-center m-3">
-                                    <p class="text-justify">"Take Five" foi regravada e apresentada diversas vezes
-                                        durante a carreira do The Dave Brubeck Quartet. Também recebeu diversas versões,
-                                        como a da cantora sueca Monica Zetterlund em 1962 e a versão de King Tubby. Até
-                                        sua morte em 1977, Desmond deixou os direitos a sua obra à Cruz Vermelha
-                                        Americana, incluindo "Take Five".</p>
-                                </div>
-                            </div>
-                        </div>
-                        <h:panelGroup style="display: none;">
-                            
-                            <div class="tab-pane fade show" id="nav-item-04" role="tabpanel">
-                                <div class="row">
-                                    <div class="col-sm-6 pb-3">
-                                        <div class="embed-responsive embed-responsive-16by9">
-                                            <iframe src="https://player.vimeo.com/video/249786539" frameborder="0"
-                                                allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                            <p><a href="https://vimeo.com/249786539">Tom and Jerry Episode 36. Old
-                                                    Rockin&#039; Chair Tom</a></p>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5 offset-sm-1 align-self-center m-3">
-                                        <p class="text-justify">O centro da trama se baseia geralmente em tentativas
-                                            frustradas de Tom de capturar Jerry, e o caos e a destruição que se segue. Tom
-                                            raramente consegue capturar Jerry, principalmente por causa das habilidades do
-                                            engenhoso ratinho, e também por causa de sua própria estupidez. As perseguições
-                                            eram eletrizantes e sempre vinham acompanhadas por boa trilha sonora. Também
-                                            eram utilizadas diversas armadilhas e truques que no final não davam resultado
-                                            satisfatório, como bombas e ratoeiras, coisas que eram fundamentais na
-                                            rivalidade entre o gato e o rato. Alguns personagens também marcam presença na
-                                            trama, como o bulldog Spike e o rival de Tom, o gato Butch.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </h:panelGroup>
-                    </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <div id="content"></div>
+         <!-- footer -->
+        <footer class="fix-down">
+            <!-- Copyright -->
+            <div class="container">
+                <div class="text-center py-3">© 2019 Copyright:
+                    <a href="https://github.com/FernandoIbaePLiborio"> Github</a>
                 </div>
             </div>
+        </footer>
+        <!-- Modal -->
+        <div id="modal-confirm" class="modal-native-container">
+            <div class="modal-native">
+                <button class="close-modal-native">x</button>
+                <label id="return"></label>
+            </div>
         </div>
-        <div class="col-12 mt-5">
-            <blockquote class="blockquote text-center">
-                <p class="lead text-muted"><em><small>"O sucesso não é garantido, mas o fracasso é certo se você não
-                            estiver emocionalmente envolvido em seu trabalho."</small></em></p>
-                <footer class="blockquote-footer ">Biz Stone <cite title="Source Title"> Fundador do Twitter</cite>
-                </footer>
-            </blockquote>
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div id="modal-confirm" class="modal-native-container">
-        <div class="modal-native">
-            <button class="close-modal-native">x</button>
-            <label id="return"></label>
-        </div>
-    </div>
-
-    <!-- footer -->
-    <div include-html="footer.html"></div>
-
-    <!-- scripts -->
-    <script>
-        includeHTML();
-        mask();
-    </script>
-    <script src="../modules/jquery/dist/jquery.js"></script>
-    <script src="../modules/popper.js/dist/umd/popper.js"></script>
-    <script src="../modules/bootstrap/dist/js/bootstrap.js"></script>
-</body>
+        <!-- scripts -->
+        <script type="text/javascript" src="../js/main.js"></script>
+        <script type="text/javascript" src="../js/script.js"></script>
+        <script src="../modules/jquery/dist/jquery.js"></script>
+        <script src="../modules/popper.js/dist/umd/popper.js"></script>
+        <script src="../modules/bootstrap/dist/js/bootstrap.js"></script>
+    </body>
 
 </html>
