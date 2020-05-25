@@ -31,13 +31,13 @@
 
     function setActiveLink(fragmentId) {
         var navbarDiv = document.querySelectorAll(".navbar-nav .nav-item .nav-link"),
-            links = navbarDiv, i, link, pageName;
+        links = navbarDiv, i, link, pageName;
 
         for(i = 0; i < links.length; i++) {
             link = links[i]; 
             pageName = link.getAttribute("href") !== null ? link.getAttribute("href").substring(1) : '';
             if (pageName === fragmentId) {
-                link.setAttribute("style", "color: aliceblue;");
+                link.setAttribute("style", "color: aliceblue; pointer-events: none; cursor: default;");
             } else {
                 link.removeAttribute("style");
             }
