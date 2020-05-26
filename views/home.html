@@ -19,16 +19,13 @@
         <div class="row justify-content-center my-5 animated bounceInLeft">
             <div class="col-10">
                 <form id="contact-form">
-                    <div class="loading">Loading&#8230;</div>
                     <div class="form-row">
                         <div class="form-group col-sm-6">
-                            <input type="text" class="form-control" id="name" placeholder="Name *" required
-                            onkeyup="validateFields()">
+                            <input type="text" class="form-control" id="name" placeholder="Name *" required onkeyup="validateFields()">
                             <span class='msg-erro msg-name'></span>
                         </div>
                         <div class="form-group col-sm-6">
-                            <input type="text" class="form-control" id="email" placeholder="Email *" required
-                            onkeyup="validateFields()">
+                            <input type="text" class="form-control" id="email" placeholder="Email *" required onkeyup="validateFields()">
                             <span class='msg-erro msg-email'></span>
                         </div>
                     </div>
@@ -47,8 +44,7 @@
                         </div>
                     </div>
                     <div class="form-row float-right">
-                        <button class="btn btn-primary" type="submit" id="btnSendMail" disabled
-                        onclick="sendMail()">Send</button>
+                        <button class="btn btn-primary" type="submit" id="btnSendMail" data-toggle="modal" disabled onclick="sendMail()">Send</button>
                         <!-- <a tabindex="0" class="btn btn-secondary ml-2" role="button" data-toggle="popover"
                         data-placement="right" data-trigger="focus" title="Exibição do popover"
                         data-content="Exibição do texto ao focus do botão">Ajuda</a> -->
@@ -143,6 +139,32 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Send</h5>
+                    <button type="buttom" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>Obrigado pelo contato!</h5>
+                                <label id="return"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="modalClose" type="button" class="btn btn-danger" data-dismiss="modal">Done</button>
                 </div>
             </div>
         </div>
