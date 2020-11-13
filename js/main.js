@@ -1,6 +1,6 @@
 /* SPA Strategy*/
 (function() {
-    
+
     var partialsCache = {};
 
     function fetchFile(path, callback) {
@@ -174,7 +174,9 @@ function validator(count) {
 
 function mask() {
     document.getElementById('fone').addEventListener('input', function (e) {
-        var aux = e.target.value.length < 15 ? e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,4})(\d{0,4})/) : e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+        var aux = e.target.value.length < 15 ? e.target.value.replace(/\D/g, '')
+            .match(/(\d{0,2})(\d{0,4})(\d{0,4})/) : e.target.value.replace(/\D/g, '')
+            .match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
         e.target.value = !aux[2] ? aux[1] : '(' + aux[1] + ') ' + aux[2] + (aux[3] ? '-' + aux[3] : '');
     });
 }
