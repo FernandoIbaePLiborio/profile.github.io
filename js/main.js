@@ -14,6 +14,7 @@
     }
 
     function getContent(fragmentId, callback) {
+
         if (partialsCache[fragmentId]) {
             callback(partialsCache[fragmentId]);
         } else {
@@ -30,6 +31,7 @@
     }
 
     function setActiveLink(fragmentId) {
+
         var navbarDiv = document.querySelectorAll(".navbar-nav .nav-item .nav-link"),
         links = navbarDiv, i, link, pageName;
 
@@ -52,6 +54,7 @@
             contentDiv.innerHTML = content;
         });
         setActiveLink(fragmentId);
+        document.body.style.display = "block";
     }
     navigate();
     window.addEventListener("hashchange", navigate);
@@ -142,8 +145,8 @@ function validateFields() {
             count += 1;
         } else {
             span_name.style.display = 'none';
-            validator(count);
         }
+        validator(count);
     });
     document.getElementById('email').addEventListener('input', function (e) {
         let count = '';
