@@ -80,7 +80,7 @@ function sendMail() {
         loading = document.querySelector('.loading');
         loading.style.display = 'block';
         await Email.send({
-            SecureToken: "c5777a6e-fc24-4a23-afb2-a80814ebc8d9",
+            SecureToken: "59e581ff-721c-40c4-a90f-91526e1a25dd",
             To: 'emporiosaudecuritiba@gmail.com',
             From: "emporiosaudecuritiba@gmail.com",
             Subject: this.subject.value,
