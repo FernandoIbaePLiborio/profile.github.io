@@ -174,7 +174,7 @@ function sendMail() {
         `;
         const nome = this.name.value;
         await Email.send({
-            SecureToken: "b4b1e026-e9df-45da-8742-f0876782c3dc",
+            SecureToken: "a9783e9f-42ea-410d-80c0-d1f1ad875868",
             To: 'emporiosaudecuritiba@gmail.com',
             From: "emporiosaudecuritiba@gmail.com",
             Subject: this.subject.value,
