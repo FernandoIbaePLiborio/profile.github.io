@@ -87,7 +87,7 @@ function sendMail() {
             Body: output
         }).then(
             /* message => alert(`Obrigado pela visita Sr(a) ${nome}, entrarei em contato o mais breve possível!`) */
-            message => modalSet('modal', `Sr(a) ${nome}, entrarei em contato o mais breve possível! Tenha um excelente dia.`),
+            message => modalSet('modal', `${nome}, have a great day.`),
             document.getElementById('contact-form').reset()
         );
     });
@@ -168,6 +168,7 @@ function validateFields() {
 function validator(count) {
     const invalidForm = document.querySelector('form:invalid');
     const submitBtn = document.getElementById('btnSendMail');
+    console.log(count+invalidForm)
     if (invalidForm || count != '') {
         submitBtn.setAttribute('disabled', true);
     } else {
