@@ -66,56 +66,40 @@ function sendMail() {
     document.getElementById('contact-form').addEventListener('submit', async function (event) {
         event.preventDefault();
         const output = `
-        <p>You have a new contact request</p>
-        <h3>Contact Details</h3>
-        <ul>
-            <li>Name: ${this.name.value}</li>
-            <li>Fone: ${this.fone.value}</li>
-            <li>Email: ${this.email.value}</li>
-        </ul>
-        <h3>Message</h3>
-        <p>${this.textMessage.value}</p>
+        Contact Details
+    
+        Name: ${this.name.value}
+        Fone: ${this.fone.value}
+        Email: ${this.email.value}
+        Message: ${this.textMessage.value}
+        
         `;
         const nome = this.name.value;
         loading = document.querySelector('.loading');
         loading.style.display = 'block';
         await Email.send({
-            SecureToken: "f1b5d77b-b43a-40aa-8d40-f165fe255e10",
-            To: 'emporiosaudecuritiba@gmail.com',
-            From: "emporiosaudecuritiba@gmail.com",
+            To: "fernandoibae@outlook.com",
+            From: this.email.value,
             Subject: this.subject.value,
             Body: output
         }).then(
-            /* message => alert(`Obrigado pela visita Sr(a) ${nome}, entrarei em contato o mais breve possível!`) */
-            message => modalSet('modal', `${nome}, Have a great day.`),
-            document.getElementById('contact-form').reset()
+            /* message => alert(`Obrigado pelo contato Sr(a) ${nome}, entrarei em contato o mais breve possível!`) */
+            message => modalSet('modal', `Obrigado pelo contato Sr(a) ${nome}, Verifique o programa padrão para que o email seja enviado!`),
+            /* document.getElementById('contact-form').reset() */
         );
     });
 }
 
-/* SmtpJS.com - v3.0.0 */
 var Email = {
     send: function (a) {
-        return new Promise(function (n, e) {
-            a.nocache = Math.floor(1e6 * Math.random() + 1), a.Action = "Send";
-            var t = JSON.stringify(a);
-            Email.ajaxPost("https://smtpjs.com/v3/smtpjs.aspx?", t, 
-            function (e) { n(e) })
+        return new Promise(function (resolve) {
+            var link = "mailto:" + a.To
+             + "?cc=" + a.From
+             + "&subject=" + a.subject
+             + "&body=" + a.Body;
+            location.href = link;
+            resolve(location);
         })
-    }, ajaxPost: function (e, n, t) {
-        var a = Email.createCORSRequest("POST", e);
-        a.setRequestHeader("Content-type", "application/x-www-form-urlencoded"), 
-        a.onload = function () {
-            var e = a.responseText; null != t && t(e)
-        }, a.send(n)
-    }, ajax: function (e, n) {
-        var t = Email.createCORSRequest("GET", e);
-        t.onload = function () {
-            var e = t.responseText; null != n && n(e)
-        }, t.send()
-    }, createCORSRequest: function (e, n) {
-        var t = new XMLHttpRequest;
-        return "withCredentials" in t ? t.open(e, n, !0) : "undefined" != typeof XDomainRequest ? (t = new XDomainRequest).open(e, n) : t = null, t
     }
 };
 
